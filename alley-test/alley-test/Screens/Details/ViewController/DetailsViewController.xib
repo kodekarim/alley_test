@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="22154" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22130"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailsViewController" customModule="alley_test" customModuleProvider="target">
+            <connections>
+                <outlet property="bDeleteButton" destination="EF7-ue-cR5" id="ENc-uB-1Td"/>
+                <outlet property="bInfoButton" destination="4L3-KJ-KE6" id="nMj-EA-njr"/>
+                <outlet property="bShareButton" destination="Gj2-SU-krd" id="cfh-S3-LR7"/>
+                <outlet property="cvCollectionView" destination="5MD-hD-acg" id="drQ-6e-kvV"/>
+                <outlet property="ivDetailImage" destination="WpF-a3-k2E" id="ToL-If-cHC"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WpF-a3-k2E">
+                    <rect key="frame" x="0.0" y="59" width="393" height="625"/>
+                    <constraints>
+                        <constraint firstAttribute="height" priority="250" constant="393" id="Pvf-OS-ddF"/>
+                    </constraints>
+                </imageView>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="lex-xK-KFS">
+                    <rect key="frame" x="0.0" y="758" width="393" height="60"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gj2-SU-krd">
+                            <rect key="frame" x="0.0" y="0.0" width="131" height="60"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="square.and.arrow.up" catalog="system"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4L3-KJ-KE6">
+                            <rect key="frame" x="131" y="0.0" width="131" height="60"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="info.circle" catalog="system"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EF7-ue-cR5">
+                            <rect key="frame" x="262" y="0.0" width="131" height="60"/>
+                            <state key="normal" title="Button"/>
+                            <buttonConfiguration key="configuration" style="plain" image="trash" catalog="system"/>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="bBG-az-Iqq"/>
+                    </constraints>
+                </stackView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="5MD-hD-acg">
+                    <rect key="frame" x="0.0" y="704" width="393" height="54"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="54" id="ffk-YS-xQM"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="eX4-80-vD9">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="lex-xK-KFS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="1Mp-IW-CyQ"/>
+                <constraint firstItem="lex-xK-KFS" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" id="8XE-Wq-jEV"/>
+                <constraint firstItem="WpF-a3-k2E" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="GL7-PL-qbg"/>
+                <constraint firstItem="lex-xK-KFS" firstAttribute="trailing" secondItem="fnl-2z-Ty3" secondAttribute="trailing" id="JwI-lj-9W2"/>
+                <constraint firstItem="WpF-a3-k2E" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="T7t-a4-Buo"/>
+                <constraint firstItem="5MD-hD-acg" firstAttribute="top" secondItem="WpF-a3-k2E" secondAttribute="bottom" constant="20" id="Tyt-La-wHi"/>
+                <constraint firstItem="WpF-a3-k2E" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="jSf-kE-ca4"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="WpF-a3-k2E" secondAttribute="trailing" id="jdc-00-rfa"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5MD-hD-acg" secondAttribute="trailing" id="nCE-mj-4Oc"/>
+                <constraint firstItem="5MD-hD-acg" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="oMX-nV-k8x"/>
+                <constraint firstItem="lex-xK-KFS" firstAttribute="top" secondItem="5MD-hD-acg" secondAttribute="bottom" id="r1e-jC-Zlj"/>
+            </constraints>
+            <point key="canvasLocation" x="20.610687022900763" y="19.718309859154932"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="info.circle" catalog="system" width="128" height="123"/>
+        <image name="square.and.arrow.up" catalog="system" width="108" height="128"/>
+        <image name="trash" catalog="system" width="117" height="128"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
