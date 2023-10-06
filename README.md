@@ -3,7 +3,7 @@ A skill assessment to demonstrate proficiency in utilizing the Vision Framework 
 
 demo video link - https://drive.google.com/file/d/1DrQbhSDCIrL7Sr_0SQINNcSoV1uQ4zXW/view?usp=sharing
 
-The project, following MVVM-C architecture, achieves a commendable 48% unit test code coverage.
-It utilizes the SqueezeNet ML model for image recognition and leverages the Vision framework to extract text from images.
-A key feature is its efficient use of prefetching in the collection view, facilitating seamless image synchronization between the default photo app and Alley Test.
-Notably, it handles image volumes ranging from 10 to 10,000 with ease, showcasing robust scalability and successful assignment fulfillment
+The project achieves a 48% unit test code coverage using the MVVM-C architecture.
+It utilises the SqueezeNet ML model for picture identification and the Vision framework for text extraction from images.
+A crucial feature is the collection view's creative use of prefetching, which allows for ideal image synchronisation between the default photo app and Alley Test.
+Notably, it easily manages picture quantities ranging from 10 to 10,000, demonstrating strong scalability and excellent assignment fulfilment.
