@@ -118,7 +118,7 @@ extension HomeViewController {
         manageUI()
     }
     
-    fileprivate func getPhotosAndReload(index:Int) {
+    fileprivate func getPhotosAndReload(index: Int) {
         let imageArray = viewModel.imagesArray
         guard index < imageArray.count && imageArray[index] == nil else {
             return
@@ -128,7 +128,9 @@ extension HomeViewController {
             let imageManager = viewModel.imageManager
             let requestOptions = viewModel.imageRequestOptions
             
-            imageManager.requestImage(for: asset, targetSize: .zero, contentMode: .aspectFill, options: requestOptions) { image, _ in
+            imageManager.requestImage(for: asset, targetSize: viewModel.thumbnailSize, contentMode: .aspectFill, options: requestOptions) { [weak self] image, info in
+                guard let self = self else { return }
+                
                 if let image = image {
                     // Update the imagesArray with the loaded image
                     self.viewModel.imagesArray[index] = image

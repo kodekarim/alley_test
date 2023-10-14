@@ -15,12 +15,15 @@ class HomeViewModel {
     var imagesArray = [UIImage?]()
     let imageManager = PHImageManager.default()
     let batchSize = 30
+    let thumbnailSize = CGSize(width: 150, height: 150)
     
     let imageRequestOptions: PHImageRequestOptions = {
         let options = PHImageRequestOptions()
         options.isSynchronous = false
-        options.deliveryMode = .highQualityFormat
-        options.version = .original
+        options.deliveryMode = .opportunistic
+        options.resizeMode = .fast
+        options.isNetworkAccessAllowed = false // for future optimisation where getting images from icloud
+        options.version = .current
         return options
     }()
 
