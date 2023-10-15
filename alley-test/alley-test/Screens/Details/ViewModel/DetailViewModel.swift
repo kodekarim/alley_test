@@ -45,29 +45,50 @@ class DetailViewModel {
     }
     
     func recognizeText(in image: UIImage) async throws -> String? {
-      guard let cgImage = image.cgImage else {
-          throw NSError(domain: "com.alley.app", code: 1, userInfo: ["Error" : "error converting image to CGImage for OCR Text"])
-      }
-
-      let requestHandler = VNImageRequestHandler(cgImage: cgImage, options: [:])
-      let request = VNRecognizeTextRequest()
-      try requestHandler.perform([request])
-
-      guard let observations = request.results as? [VNRecognizedTextObservation] else {
-        return nil
-      }
+        let targetSize = CGSize(width: 500, height: 500)
         
-      var recognizedText = ""
-      for observation in observations {
-        guard let topCandidate = observation.topCandidates(1).first else {
-          continue
+        guard let resizeImage = resizeImage(image, targetSize: targetSize) else {
+            throw NSError(domain: "com.alley.app", code: 1, userInfo: ["Error" : "error converting image to CGImage for OCR Text"])
+        }
+        
+        guard let cgImage = resizeImage.cgImage else {
+            throw NSError(domain: "com.alley.app", code: 1, userInfo: ["Error" : "error converting image to CGImage for OCR Text"])
+        }
+        
+        let requestHandler = VNImageRequestHandler(cgImage: cgImage, options: [:])
+        let request = VNRecognizeTextRequest()
+        request.recognitionLevel = .fast
+        try requestHandler.perform([request])
+        
+        guard let observations = request.results else {
+            return nil
+        }
+        
+        var recognizedText = ""
+        for observation in observations {
+            guard let topCandidate = observation.topCandidates(1).first else {
+                continue
+            }
+            
+            recognizedText += topCandidate.string
+            recognizedText += "\n" // Add a line break between each recognized block of text
+        }
+        
+        return recognizedText
+    }
+    
+    fileprivate func resizeImage(_ image: UIImage, targetSize: CGSize) -> UIImage? {
+        let rect = CGRect(origin: .zero, size: targetSize)
+        UIGraphicsBeginImageContextWithOptions(targetSize, false, UIScreen.main.scale)
+        defer { UIGraphicsEndImageContext() }
+
+        image.draw(in: rect)
+
+        if let resizedImage = UIGraphicsGetImageFromCurrentImageContext() {
+            return resizedImage
         }
 
-        recognizedText += topCandidate.string
-        recognizedText += "\n" // Add a line break between each recognized block of text
-      }
-
-      return recognizedText
+        return nil
     }
     
     
